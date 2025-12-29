@@ -24,6 +24,15 @@ class RenderSurfaceComponent:
         surface.fill(color)
         return cls(surface)
 
+    @classmethod
+    def from_image(cls, image_path: str, transparent_pixels: bool = False):
+        image = pygame.image.load(image_path)
+        if transparent_pixels:
+            image = image.convert_alpha()
+            return cls(image)
+        image = image.convert()
+        return cls(image)
+
 
 @dataclass
 class RectSpriteComponent:
