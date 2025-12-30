@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Self
 
 from esper import Processor
 import esper
@@ -32,6 +33,14 @@ class RenderSurfaceComponent:
             return cls(image)
         image = image.convert()
         return cls(image)
+
+    def scale(self, factor: float) -> Self:
+        new_size = (
+            int(self.surface.get_width() * factor),
+            int(self.surface.get_height() * factor),
+        )
+        self.surface = pygame.transform.scale(self.surface, new_size)
+        return self
 
 
 @dataclass
