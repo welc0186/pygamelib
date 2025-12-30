@@ -9,4 +9,5 @@ from .geometry import (
 )
 from .player import PlayerControllerComponent, PlayerMoveProcessor
 from .rendering import RenderSurfaceComponent, RenderSurfaceProcessor
+from .timer import TimerComponent, TimerProcessor
 from .modifiers.modifier import ModifierProcessor
