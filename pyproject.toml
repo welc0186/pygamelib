@@ -6,7 +6,7 @@ authors = [
     {name = "welc0186",email = "49768046+welc0186@users.noreply.github.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
     "pygame (>=2.6.1,<3.0.0)",
     "esper (>=3.4,<4.0)"
