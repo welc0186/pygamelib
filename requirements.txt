@@ -1,0 +1,2 @@
+esper==3.4 ; python_version >= "3.11"
+pygame==2.6.1 ; python_version >= "3.11"
