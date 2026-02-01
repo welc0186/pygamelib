@@ -18,6 +18,8 @@ esper = ">=3.4,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.2"
+pytest-cov = "^7.0.0"
+ruff = "^0.14.14"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
