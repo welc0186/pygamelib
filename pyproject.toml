@@ -9,7 +9,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 
 [tool.poetry]
-packages = [{include = "gamelib", from = "src"}]
+packages = [{include = "gamelib"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11"
