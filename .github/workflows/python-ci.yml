@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: Lint
-        run: ruff check pygamelib/src tests
+        run: ruff check
 
       - name: Test
         run: pytest -q

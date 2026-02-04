@@ -2,7 +2,6 @@ from dataclasses import dataclass, field
 from typing import List
 from esper import Processor
 import esper
-import time
 
 
 @dataclass

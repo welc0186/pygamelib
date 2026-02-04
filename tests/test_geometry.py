@@ -1,4 +1,3 @@
-import pytest
 from gamelib.ecs.geometry import PositionComponent, RectComponent
 
 

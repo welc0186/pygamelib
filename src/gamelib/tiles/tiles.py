@@ -11,7 +11,7 @@ class TileMap:
         self.tiles: dict[Tuple[int, int], Any] = {}
 
     def add_to_tile(self, tile: Tuple[int, int], object: Any) -> T_TileMap:
-        if not tile in self.tiles:
+        if tile not in self.tiles:
             self.tiles[tile] = []
         self.tiles[tile] = object
         return self.tiles
