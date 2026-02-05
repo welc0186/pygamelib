@@ -21,25 +21,47 @@ class TileMap:
             self.add_to_tile(tile, object)
         return self.tiles
 
-    def get_unit_size(self) -> Tuple[int, int]:
+    @property
+    def min_x(self) -> int:
         xs = [x for x, _ in self.tiles.keys()]
+        return min(xs)
+
+    @property
+    def min_y(self) -> int:
         ys = [y for _, y in self.tiles.keys()]
+        return min(ys)
 
-        min_x, max_x = min(xs), max(xs)
-        min_y, max_y = min(ys), max(ys)
+    @property
+    def max_x(self) -> int:
+        xs = [x for x, _ in self.tiles.keys()]
+        return max(xs)
 
-        width = max_x - min_x + 1
-        height = max_y - min_y + 1
+    @property
+    def max_y(self) -> int:
+        ys = [y for _, y in self.tiles.keys()]
+        return max(ys)
+
+    def get_unit_size(self) -> Tuple[int, int]:
+        width = self.max_x - self.min_x + 1
+        height = self.max_y - self.min_y + 1
 
         return width, height
 
 
 class SpriteTileMap(TileMap):
     def generate_surface(self) -> pygame.Surface:
-        surface = pygame.Surface([self.tilesize * dim for dim in self.get_unit_size()])
-        for coords in self.tiles:
-            tile_sprite = self.tiles[coords]
+        # determine bounds so negative coordinates are supported
+        width, height = self.get_unit_size()
+
+        surface = pygame.Surface(
+            (self.tilesize * width, self.tilesize * height), pygame.SRCALPHA
+        )
+        for coords, tile_sprite in self.tiles.items():
             if not isinstance(tile_sprite, pygame.Surface):
                 continue
-            surface.blit(tile_sprite, [self.tilesize * coord for coord in coords])
+            pos = (
+                (coords[0] - self.min_x) * self.tilesize,
+                (coords[1] - self.min_y) * self.tilesize,
+            )
+            surface.blit(tile_sprite, pos)
         return surface
