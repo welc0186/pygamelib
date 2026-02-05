@@ -38,6 +38,18 @@ class SpriteSheetGrid:
         """Get sprite at grid coordinate (x, y)."""
         return self.sprites[y][x]
 
+    def get_by_index(self, index: int) -> pygame.Surface:
+        """Get sprite by linear index (row-major order).
+
+        Index 0 is the upper-left cell; the last index is the lower-right.
+        """
+        total = self.rows * self.cols
+        if index < 0 or index >= total:
+            raise IndexError(f"Sprite index out of range: {index}")
+        x = index % self.cols
+        y = index // self.cols
+        return self.get(x, y)
+
     def make_key_image(self, font_size: int = 14) -> pygame.Surface:
         """
         Returns a debug image showing the spritesheet with grid lines
