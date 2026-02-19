@@ -11,6 +11,7 @@ from .player import PlayerControllerComponent, PlayerMoveProcessor
 from .rendering import RenderSurfaceComponent, RenderSurfaceProcessor
 from .timer import TimerComponent, TimerProcessor
 from .modifiers.modifier import ModifierProcessor
+from .waypoint import WaypointComponent, WaypointProcessor
 
 __all__ = [
     "ColliderComponent",
@@ -30,4 +31,6 @@ __all__ = [
     "TimerComponent",
     "TimerProcessor",
     "ModifierProcessor",
+    "WaypointComponent",
+    "WaypointProcessor",
 ]
